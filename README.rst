@@ -16,7 +16,7 @@ o Continuous Integration, Continuous Delivery i Continuous Deployment.
     $ pip install -r requirements.txt
     $ pip install -r test_requirements.txt
 
-    # Makefile
+    # Za pomoca Makefile
     $ make deps
 
   Sprawdź: `documentację virtualenvwrappera <https://virtualenvwrapper.readthedocs.io/en/latest/command_ref.html>`_ oraz `biblioteki flask <http://flask.pocoo.org>`_.
@@ -31,7 +31,7 @@ o Continuous Integration, Continuous Delivery i Continuous Deployment.
     # albo:
     $ PYTHONPATH=. FLASK_APP=hello_world flask run
 
-    # Makefile
+    # Za pomoca Makefile
     $ make run
 
 - Uruchamianie testów (see: http://doc.pytest.org/en/latest/capture.html):
@@ -41,9 +41,9 @@ o Continuous Integration, Continuous Delivery i Continuous Deployment.
     $ PYTHONPATH=. py.test
     $ PYTHONPATH=. py.test  --verbose -s
 
-    # Makefile
+    # Za pomoca Makefile
     $ make test
-    
+
 - Kontynuując pracę z projektem, aktywowanie hermetycznego środowiska dla aplikacji py:
 
   ::
@@ -61,7 +61,7 @@ o Continuous Integration, Continuous Delivery i Continuous Deployment.
   ::
 
     ...
-
+- Monitoring aplikacji z Statuscake
 
 Pomocnicze
 ==========
