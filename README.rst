@@ -16,7 +16,7 @@ o Continuous Integration, Continuous Delivery i Continuous Deployment.
     $ pip install -r requirements.txt
     $ pip install -r test_requirements.txt
 
-    # Za pomoca Makefile
+    # albo za pomoca Makefile
     $ make deps
 
   Sprawdź: `documentację virtualenvwrappera <https://virtualenvwrapper.readthedocs.io/en/latest/command_ref.html>`_ oraz `biblioteki flask <http://flask.pocoo.org>`_.
@@ -31,7 +31,7 @@ o Continuous Integration, Continuous Delivery i Continuous Deployment.
     # albo:
     $ PYTHONPATH=. FLASK_APP=hello_world flask run
 
-    # Za pomoca Makefile
+    # albo za pomoca Makefile
     $ make run
 
 - Uruchamianie testów (see: http://doc.pytest.org/en/latest/capture.html):
@@ -41,7 +41,7 @@ o Continuous Integration, Continuous Delivery i Continuous Deployment.
     $ PYTHONPATH=. py.test
     $ PYTHONPATH=. py.test  --verbose -s
 
-    # Za pomoca Makefile
+    # albo za pomoca Makefile
     $ make test
 
 - Kontynuując pracę z projektem, aktywowanie hermetycznego środowiska dla aplikacji py:
@@ -57,8 +57,22 @@ o Continuous Integration, Continuous Delivery i Continuous Deployment.
     $ deactivate
 
 - Integracja z TravisCI:
-
+    # niezbedny plik .travis.yml-tam wszystkie komendy
   ::
+- Budowa dockera lokalnie
+    $ make docker_build
+
+- Uruchamianie dockera lokalnie
+    $ make docker_run
+
+    # Docker zazwyczaj nie restartujemy, kasujemy i uruchamiamy na nowo:
+      $ docker stop hello-world-printer-dev
+      $ docker rm hello-world-printer-dev
+
+- Wrzucenie Docker Image do docker hub-a:
+    $ export DOCKER_PASSWORD=TWOJE_HASLO
+    $ make docker_push
+
 
     ...
 - Monitoring aplikacji z Statuscake
@@ -78,37 +92,7 @@ Ubuntu
 
 - Instalacja dockera: `dockerce howto <https://docs.docker.com/install/linux/docker-ce/ubuntu/>`_
 
-Centos
-------
 
-- Instalacja python virtualenv i virtualenvwrapper:
-
-  ::
-
-    $ yum install -y python-pip
-    $ pip install -U pip
-    $ pip install virtualenv
-    $ pip install virtualenvwrapper
-
-- Instalacja docker-a:
-
-  ::
-
-    $ yum remove docker \
-        docker-common \
-        container-selinux \
-        docker-selinux \
-        docker-engine
-
-    $ yum install -y yum-utils
-
-    $ yum-config-manager \
-      --add-repo \
-      https://download.docker.com/linux/centos/docker-ce.repo
-
-    $ yum makecache fast
-    $ yum install -y docker-ce
-    $ systemctl start docker
 
 Materiały
 =========
